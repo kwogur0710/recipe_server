@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>recipe-server</title>
+    <style>
+      table { border: 1px solid black; border-collapse: collapse; }
+      table th, table td { border: 1px solid black; }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form id="user-form">
+        <fieldset>
+          <legend>사용자 등록</legend>
+          <div><input id="id" type="text" placeholder="아이디"></div>
+          <div><input id="password" type="password" placeholder="비밀번호"></div>
+          <div><input id="name" type="text" placeholder="이름"></div>
+          <div><input id="number" type="text" placeholder="전화번호"></div>
+          <div><input id="birth" type="date" placeholder="생년월일"></div>
+          <div><input id="gender" name="gender" type="radio" value = "남자">남자<input id="gender" name="gender" type="radio" value = "여자">여자</div>
+          <div><input id="email" type="email" placeholder="이메일"></div>
+          <div><input id="address" type="text" placeholder="주소"></div>
+          <button type="submit">등록</button>
+        </fieldset>
+      </form>
+    </div>
+    <br>
+    <table id="user-list">
+      <thead>
+      <tr>
+        <th>아이디</th>
+        <th>이름</th>
+        <th>전화번호</th>
+        <th>생년월일</th>
+        <th>성별</th>
+        <th>이메일</th>
+        <th>주소</th>
+      </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{recipeUser.id}}</td>
+          <td>{{recipeUser.name}}</td>
+          <td>{{recipeUser.number}}</td>
+          <td>{{recipeUser.birth}}</td>
+          <td>{{recipeUser.gender}}</td>
+          <td>{{recipeUser.email}}</td>
+          <td>{{recipeUser.address}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/sequelize.js"></script>
+  </body>
+</html>
