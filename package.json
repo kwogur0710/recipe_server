@@ -1,0 +1,24 @@
+{
+    "name": "recipe_server",
+    "version": "0.0.1",
+    "description": "레시피 서버 열기",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app"
+    },
+    "author": "ZeroCho",
+    "license": "MIT",
+    "dependencies": {
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^8.5.1",
+        "morgan": "^1.10.0",
+        "mysql2": "^2.3.3",
+        "nunjucks": "^3.2.3",
+        "sequelize": "^6.25.3",
+        "sequelize-cli": "^6.5.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.20"
+    }
+}
