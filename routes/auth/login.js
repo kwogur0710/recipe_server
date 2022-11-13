@@ -8,20 +8,18 @@ router.route('/')
   .post(async (req, res, next) => {
     try {
       const user = await User.findAll({
-        attributes:['id','nickname'],
+        attributes:['id','email','name','nickname','gender','birth','number'],
         where: { 
             id: req.body.id,
             password : req.body.password
         }
     })
-    let nickname;
     console.log("user", user);
     if(user != '') {
-      nickname = user[0].getDataValue('nickname');
-    }
-    if(user != ''){
+      let nickname = user[0].getDataValue('nickname');
         res.status(200).json({
           message : `${nickname}님 로그인 되었습니다.`,
+          user : user,
           token: jwt.sign({
             type:'JWT',
             id: req.body.id,
