@@ -1,9 +1,0 @@
-#database
-/database.json
-
-# macOS
-.DS_Store
-node_modules
-
-#개인정보
-.env
