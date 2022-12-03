@@ -13,21 +13,6 @@ router.route('/')
       next(err);
     }
   })
-  .post(async (req, res, next) => {
-    try {
-      const user = await User.create({
-        id: req.body.id,
-        password : req.body.password,
-        name : req.body.name,
-        nickname : req.body.nickname,
-      });
-      console.log(user);
-      res.status(201).json(user);
-    } catch (err) {
-      console.error(err);
-      next(err);
-    }
-  });
 
 router.get('/:id/', async (req, res, next) => {
   try {

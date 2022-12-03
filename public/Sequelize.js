@@ -19,6 +19,7 @@ document.querySelectorAll('#user-list tr').forEach((el) => {
       console.log(users);
       const tbody = document.querySelector('#user-list tbody');
       tbody.innerHTML = '';
+      /*
       users.map(function (user) {
         const row = document.createElement('tr');
         // 로우 셀 추가
@@ -44,7 +45,7 @@ document.querySelectorAll('#user-list tr').forEach((el) => {
         td.textContent = user.address;
         row.appendChild(td);
         tbody.appendChild(row);
-      });
+      });*/
     } catch (err) {
       console.error(err);
     }

@@ -1,49 +1,39 @@
 const Sequelize = require('sequelize');
 
-module.exports = class User extends Sequelize.Model{
+module.exports = class Comment extends Sequelize.Model{
     static init(sequelize){
         return super.init({
-            id:{
-                type: Sequelize.STRING(20),
+            commentNum:{
+                type: Sequelize.INTEGER,
                 allowNull: false,
                 primaryKey: true,
             },
-            password:{
-                type: Sequelize.STRING(70),
+            postNum:{
+                type: Sequelize.INTEGER,
                 allowNull: false,
             },
-            name:{
+            id:{
                 type: Sequelize.STRING(20),
                 allowNull: false,
-            },
-            birth:{
-                type: Sequelize.STRING(10),
-                allowNull: false,
-            },
-            gender:{
-                type: Sequelize.STRING(10),
-                allowNull: false,
-            },
-            number:{
-                type: Sequelize.STRING(20),
-                allowNull: false,
-            },
-            email:{
-                type: Sequelize.STRING(45),
-                allowNull: false,
-                unique: true,
             },
             nickname:{
                 type: Sequelize.STRING(20),
                 allowNull: false,
-                unique: true,
+            },
+            contents:{
+                type: Sequelize.STRING(50),
+                allowNull: false,
+            },
+            makedate:{
+                type: Sequelize.DATE,
+                allowNull: false,
             },
         }, {
             sequelize,
             timestamps: false,
             underscored: false,
-            modelName: 'User',
-            tableName: 'users',
+            modelName: 'Comment',
+            tableName: 'comments',
             paranoid: false,
             charset: 'utf8',
             collate: 'utf8_general_ci',

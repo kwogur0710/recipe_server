@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('../../models/user');
+const hash = require('../../models/passwordHash');
 
 const router = express.Router();
 
@@ -24,7 +25,7 @@ router.route('/')
 
       //중복검사 후 user data 생성
       if(!db_id && !db_email && !db_nickname) {
-        User.create({id : id, email : email, password : password, name : name, nickname : nickname, birth:birth, gender:gender, number:number });
+        User.create({id : id, email : email, password : hash.passwordHash(password), name : name, nickname : nickname, birth:birth, gender:gender, number:number });
         res.status(200).json({ message: "회원가입이 완료되었습니다." })
       } else if(db_id != null) return res.status(400).json({ message: "이미 사용중인 아이디입니다." });
         else if(db_email != null)return res.status(400).json({ message: "이미 사용중인 이메일입니다." });
